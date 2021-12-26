@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="qoute">Ye...</div>
+    <button class="btn">Speak Kanye!!</button>
+
+    <style>
+      body {
+        margin-top: 15%;
+        font-size: large;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-image: url("./kanye-photos/7.jfif");
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      button {
+        margin-top: 50px;
+        padding: 5px;
+        border: none;
+        background-color: lightcoral;
+        color: yellowgreen;
+        font-style: italic;
+        font-weight: 800;
+        border: 2px solid transparent;
+        border-radius: 20px;
+        font-size: medium;
+      }
+      button:hover {
+        transform: scale(1.5, 1.5);
+        cursor: pointer;
+      }
+      div {
+        padding: 7px;
+        background-color: darkred;
+        color: yellow;
+        font-size: large;
+        border: 2px solid transparent;
+        border-radius: 20px;
+      }
+    </style>
+
+    <script>
+      const btn = document.querySelector(".btn");
+      const div = document.querySelector(".qoute");
+      const body = document.querySelector("body");
+
+      const bg = [
+        "./kanye-photos/1.png",
+        "./kanye-photos/3.png",
+        "./kanye-photos/2.jfif",
+        "./kanye-photos/4.jfif",
+        "./kanye-photos/9.jfif",
+        "./kanye-photos/6.jfif",
+        "./kanye-photos/7.jfif",
+        "./kanye-photos/8.jfif",
+      ];
+
+      const randbg = () => {
+        return Math.floor(Math.random() * 7) + 1;
+      };
+
+      btn.addEventListener("click", async () => {
+        const data = await fetch("https://api.kanye.rest/");
+        const qoute = await data.json();
+        div.innerText = `${qoute.quote}`;
+        body.style.backgroundImage = `url(${bg[randbg()]})`;
+      });
+    </script>
+  </body>
+</html>
