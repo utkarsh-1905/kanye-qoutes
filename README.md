@@ -1,3 +1,4 @@
+![KanyeWest](kanye-photos/logo.png)
 # Kanye West Wisdom
 
 **Kanye West** the OG rapper always wanted to spread his wisdom. So, I helped him and created this webpage for _everyone_.
